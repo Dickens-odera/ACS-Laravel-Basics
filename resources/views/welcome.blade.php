@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -89,3 +89,19 @@
         </div>
     </body>
 </html>
+ --}}
+ @extends('layouts.app')
+
+ @section('content')
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <div class="jumbotron text-center">
+              <h3>ACS Laravel Basic</h3>
+              <p>A week of codding the laravel framework</p>
+              <a href="{{ route('register')}}" class="btn btn-success">Get Started</a>
+          </div>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+ @endsection

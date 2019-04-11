@@ -9,7 +9,8 @@
                 </div>
                 <div class="card-body">
                 <p>{{  $post->description }}</p>
-                <small>Written on {{ $post->created_at}} by {{ $post->user->name}} </small>
+                <small>Written on {{ $post->created_at}} by {{ $post->user->name}} </small><br>
+                <a href="/posts" class="btn btn-danger">Back</a>
                 </div>
             </div>
         </div>
