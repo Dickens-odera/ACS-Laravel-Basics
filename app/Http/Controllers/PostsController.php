@@ -36,7 +36,24 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //perform validations
+        $this->validate($request, [
+            'title'=>'required',
+            'description'=>'required'
+        ]);
+        $post = new Posts;
+        $post->title = $request->input('title');
+        $post->description = $request->input('description');
+        //get a currently looged in user
+        $user = auth()->user();
+        //get the id of this user
+        $post->user_id = $user->id;
+        if($post->save()){
+            return redirect('posts')->with('success','Post Added Successfully');
+
+        }else{
+            return redirect('/posts/create')->with('error','Failed to add post, try again');
+        }
     }
 
     /**
@@ -47,7 +64,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Posts::findOrFail($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**

@@ -19,7 +19,7 @@
                         <tr>
                             <td>{{ $post->title }}</td>
                             <td>{{  $post->description }}</td>
-                            <td><a href="/posts/{id}" class="btn btn-primary">View</a></td>
+                            <td><a href="/posts/{{$post->id}}" class="btn btn-primary">View</a></td>
                         </tr>
                     @endforeach
                 </table>
