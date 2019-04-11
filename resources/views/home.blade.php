@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                <a href="{{ url('/posts/create')}}" class="btn btn-success">New</a>
                 </div>
             </div>
         </div>

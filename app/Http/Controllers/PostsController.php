@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Posts;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -13,7 +13,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        //$post = Posts::all();
+        $post = Posts::take(4)->paginate(2);
+        return view('posts.index')->with('posts',$post);
     }
 
     /**
@@ -23,7 +25,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
