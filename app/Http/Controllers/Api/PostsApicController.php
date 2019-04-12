@@ -40,6 +40,13 @@ class PostsApicController extends Controller
     public function store(Request $request)
     {
         //add a new post
+        $post = $request->isMethod('PUT')? Posts::findOrFail($request->id) : new Posts;
+        $post->id = $request->input('id');
+        $post->title = $request->input('title');
+        $post->description = $request->input('description');
+        if($post->save()){
+            return Resource($post);
+        }
     }
 
     /**
@@ -51,6 +58,8 @@ class PostsApicController extends Controller
     public function show($id)
     {
         //display a single post
+        $post = Posts::finOrFail($id);
+        return new Resource($post);
     }
 
     /**
@@ -85,5 +94,9 @@ class PostsApicController extends Controller
     public function destroy($id)
     {
         //delete a post by supplying the post id
+        $post = Posts::findOrFail($id);
+        if($post->delete()){
+            return new Resource($post);
+        }
     }
 }
