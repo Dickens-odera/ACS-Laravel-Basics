@@ -58,7 +58,7 @@ class PostsApicController extends Controller
     public function show($id)
     {
         //display a single post
-        $post = Posts::finOrFail($id);
+        $post = Posts::findOrFail($id);
         return new Resource($post);
     }
 
