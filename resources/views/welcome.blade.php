@@ -99,7 +99,12 @@
           <div class="jumbotron text-center">
               <h3>ACS Laravel Basic</h3>
               <p>A week of codding the laravel framework</p>
-              <a href="{{ route('register')}}" class="btn btn-success">Get Started</a>
+              @if(!Auth::user())
+                     <a href="{{ route('register')}}" class="btn btn-success">Get Started</a> 
+                @else
+                 <a href="{{  url('posts')  }}" class="btn btn-success">Continue</a>
+
+            @endif
           </div>
       </div>
       <div class="col-md-2"></div>
